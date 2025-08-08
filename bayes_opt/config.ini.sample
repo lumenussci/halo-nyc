@@ -1,0 +1,55 @@
+# Template for inversion config file
+#
+# Top directory we are working in.
+# h, hsigma and hq directories will be created in workdir
+workdir='/data/work/kirk'
+hdir = 'H'
+h_tmp_dir = "tmpH"
+hsigdir = 'Hsigma'
+hqdir = 'HQ'
+
+isbound = 0
+bound_name = "flux"
+
+start_date = "2012-6-1"
+end_date = "2012-8-31"
+
+# hrsperstep - Hours between time steps in the inversion/footprint
+hrsperstep = 24
+
+# domain latitude and longitude boundaries
+south = 10
+north = 80
+west = -170
+east = -50
+
+# resolution of grid in degrees
+lat_resolution = 1
+lon_resolution = 1
+
+# correlation length parameters for D and E
+spatial_corr_length = 1000
+temporal_corr_length = 7.0
+
+# landmask file
+# Netcdf file containing land/ocean designation for domain
+landmask_file = 'landmask_na.npy'
+
+# vshat aggregation dates
+# time span will be from date up to but not including the following date
+# include ending date 1 day past end_date
+vshat_dates = ["2012-6-1", "2012-7-1", "2012-8-1", "2012-9-1"]
+
+# The spatial covariance file.
+# Created with make_sc.py
+# This file has the distances from grid cell to grid cell,
+# which is the bulk of the calculations, but needs to be done
+# only once per grid.
+# Actual covariance is computed in inversion.py
+# as var*exp(-spcov/corr_length)
+sp_cov_file = "spcov.npy"
+z_file = "zhsp.txt"
+
+
+hsensitivity_name = "Hsensitivity"
+
